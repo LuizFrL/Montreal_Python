@@ -1,0 +1,14 @@
+{
+    "diretorios": {
+        "diretorio_arquivos_envioOOBJ": "\\\\srvvm049\\emissao$\\entrada",
+        "diretorio_arquivos_geradas": "\\\\srvvm049\\emissao$\\geradas",
+        "diretorio_arquivos_nao_corrigidos": "\\\\srvvm049\\emissao$\\arquivos_nao_corrigidos",
+        "diretorio_arquivos_originais": "\\\\srvvm049\\emissao$\\arquivos-originais",
+        "diretorio_arquivos_resposta": "\\\\srvvm049\\emissao$\\retorno"
+    },
+    "envio_email": {
+        "dias_analise": 5,
+        "email": "luiz.lemos@clubemontreal.com.br"
+    },
+    "ultimo_arquivo_consolidacao": 1538103600.0
+}
