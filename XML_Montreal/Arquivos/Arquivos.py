@@ -26,7 +26,7 @@ class ArquivoDir(object):
         if arquivos:
             valores = {}
             for diretorio in arquivos:
-                valores[os.stat(diretorio).st_ctime] = diretorio
+                valores[os.stat(diretorio).st_mtime] = diretorio
             lista_maior = []
             for key in valores.keys():
                 lista_maior.append(key)

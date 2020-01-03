@@ -182,6 +182,8 @@ def retornar_arquivos():
 
     print("Iniciando Análise de arquivos...", end='')
     periodo_dias = int(config['envio_email']['dias_analise'])
+    if ultimo_dia_mes() == datetime.now().day:
+        periodo_dias = int(datetime.now().day)
 
     periodo_inicial = datetime.now() - timedelta(days=periodo_dias - 1)
     periodo_inicial = datetime(day=periodo_inicial.day, month=periodo_inicial.month, year=periodo_inicial.year)

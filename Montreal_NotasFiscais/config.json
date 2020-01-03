@@ -7,7 +7,7 @@
         "diretorio_arquivos_resposta": "\\\\srvvm049\\emissao$\\retorno"
     },
     "envio_email": {
-        "dias_analise": 5,
+        "dias_analise": 33,
         "email": "luiz.lemos@clubemontreal.com.br"
     },
     "ultimo_arquivo_consolidacao": 1538103600.0

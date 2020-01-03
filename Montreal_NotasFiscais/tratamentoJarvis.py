@@ -19,6 +19,40 @@ def erroNotwellformed(palavra):
     return palavra.replace("&", 'e')
 
 
+def alterar_enderec_MONTREAL(string):
+
+    MONTREAL_ENDERECO = """
+<enderEmit>
+<xLgr>SMAS AREA 6580 TORRE SUL, 1 E 3 ANDARES</xLgr>
+<xCpl>PARKSHOPPING CORPORATE</xCpl>
+<xBairro>Zona Industrial (Guara)</xBairro>
+<cMun>5300108</cMun>
+<xMun>Brasilia</xMun>
+<UF>DF</UF>
+<CEP>70306901</CEP>
+<cPais>1058</cPais>
+<xPais>BRASIL</xPais>
+<fone>6121054090</fone>
+</enderEmit>
+""".replace('\n', '')
+    old_adres = """
+<enderEmit>
+<xLgr>SCS Qd 06, Bloco A</xLgr>
+<nro>130</nro>
+<xCpl>Edificio Ermes</xCpl>
+<xBairro>Asa Sul</xBairro>
+<cMun>5300108</cMun>
+<xMun>Brasilia</xMun>
+<UF>DF</UF>
+<CEP>70306901</CEP>
+<cPais>1058</cPais>
+<xPais>BRASIL</xPais>
+<fone>6121054090</fone>
+</enderEmit>
+""".replace('\n', '')
+    return string.replace(old_adres, MONTREAL_ENDERECO)
+
+
 def erroValidacao(string):
     tree = et.ElementTree(et.fromstring(string))
     root = tree.getroot()
@@ -324,6 +358,9 @@ for arquiv in arquivos:
 
     # Primeira tratativa, retirar o &
     string = erroNotwellformed(string)
+
+    # Colocar novo endereço da Montreal
+    string = alterar_enderec_MONTREAL(string)
 
     # Tratamento necessário para correção, arquivos de 2018 NÃO devem ser corrigidos
     string = erroValidacao(string)
