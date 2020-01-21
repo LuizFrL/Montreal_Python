@@ -305,7 +305,6 @@ def encaminharResultados_Jarvis(erros: 'Lista de erros durante a execução',
 
 
 print('v-1.0')
-exit()
 try:
     os.chdir(r'C:\Users\m1015\Desktop\Notas')
 except:
