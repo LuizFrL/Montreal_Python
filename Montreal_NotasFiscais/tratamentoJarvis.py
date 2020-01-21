@@ -8,6 +8,15 @@ import json
 import xml.etree.ElementTree
 
 
+def solucoes_temporarias(string):
+    #texto = "Documento emitido para fins de regularizacao da prestacao de servico de intermediacao relativa ao " \
+    #        "periodo de apuracao 12/2019, nos termos da Instrucao Normativa SUREC n. 07, de 25 de setembro de 2009"
+    #string = string.replace('<infAdic>', f'<infAdic><infCpl>{texto}</infCpl>', 1)
+    #string = string.replace('</obsCont>', '</obsCont><obsCont xCampo="IN072009"><xTexto>12/2019</xTexto></obsCont>', 1)
+    #print('--Alterações Feitas--')
+    return string
+
+
 def retornar_diretorios():
     if os.path.exists(r'C:\Users\m1015\Desktop\Notas'):
         os.chdir(r'C:\Users\m1015\Desktop\Notas')
@@ -24,6 +33,7 @@ def alterar_enderec_MONTREAL(string):
     MONTREAL_ENDERECO = """
 <enderEmit>
 <xLgr>SMAS AREA 6580 TORRE SUL, 1 E 3 ANDARES</xLgr>
+<nro>sn</nro>
 <xCpl>PARKSHOPPING CORPORATE</xCpl>
 <xBairro>Zona Industrial (Guara)</xBairro>
 <cMun>5300108</cMun>
@@ -50,6 +60,9 @@ def alterar_enderec_MONTREAL(string):
 <fone>6121054090</fone>
 </enderEmit>
 """.replace('\n', '')
+    if string.find(old_adres) == -1 and string.find(MONTREAL_ENDERECO) == -1: exit()
+
+    print('Endereço Trocado.')
     return string.replace(old_adres, MONTREAL_ENDERECO)
 
 
@@ -228,7 +241,6 @@ def xml_tag(root):
             if len(str(k.text)) > 60:
                 k.text = str(k.text)[0:60]
             xml_tag(k)
-
     return root
 
 
@@ -292,6 +304,8 @@ def encaminharResultados_Jarvis(erros: 'Lista de erros durante a execução',
     return resultado_encaminhamento
 
 
+print('v-1.0')
+exit()
 try:
     os.chdir(r'C:\Users\m1015\Desktop\Notas')
 except:
@@ -351,7 +365,7 @@ for arquiv in arquivos:
     string = ''
     # Tira a quebra de linha e concatena todas as linhas em uma unica string
     for linha in linhas:
-        string += linha.replace('\n', '')
+        string += linha.replace('\n', '').strip()
 
     # Trocando acentos do arquivo
     string = unidecode(string)
@@ -370,6 +384,9 @@ for arquiv in arquivos:
 
     # Declaração do tratamento de erro por tag com valor a cima de 60 chars.
     string = erroCvc_maxLength(string)
+
+    # Gerencia situações específicas temporarias
+    string = solucoes_temporarias(string)
 
     # Declaração do tratamento de erro, voltado a arquivo com mais de um item
     auxiliar = erroConteudoInvalido(string=string)

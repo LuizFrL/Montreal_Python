@@ -14,7 +14,7 @@ def retorna_arquivo_recente(num, dir_resposta):
 
     diretorios = { }
     for arquivo_resposta in arquivos_resposta:
-        time = int(os.stat(arquivo_resposta).st_ctime)
+        time = int(os.stat(arquivo_resposta).st_mtime)
         valores.append(time)
         diretorios[time] = arquivo_resposta
 
@@ -48,7 +48,7 @@ def ultimo_dia_mes():
 def enviar_email(informacoes_arquivo, pendencia):
     print("Enviando email.")
     email = 'gti@clubemontreal.com.br'
-    senha = 'uM2&9D7K'
+    senha = 'UM2&9D7K'
     servidor_email = SMTP('smtp.gmail.com:587')
     servidor_email.ehlo()
     servidor_email.starttls()
@@ -67,7 +67,7 @@ def enviar_email(informacoes_arquivo, pendencia):
     msg_debug = MIMEMultipart('alternative')
     msg_debug['Subject'] = f'[Monitoramento de envio de notas fiscais] Conciliação DEBUG'
     msg_debug['From'] = email
-    msg_debug['To'] = grupo
+    msg_debug['To'] = 'luiz.lemos@clubemontreal.com.br'
 
     servidor_email.sendmail(email, grupo, layout_debug(msg_debug, informacoes_arquivo).as_string().encode('utf-8'))
 
@@ -204,7 +204,8 @@ def layout_envio(msg, informacoes_arquivo, pendencia):
              Total R$ (Erros): Somatório dos valores das notas retornadas com erro pela SEFAZ.
              <br>
              <br>
-             Contingência: Erro referente aos arquivos Retornados, onde a OOBJ não consegue se comunicar com a SEFAZ estadual para emitir o documento fiscal.
+             Contingência: Erro referente aos arquivos Retornados, onde a OOBJ não consegue se comunicar com a SEFAZ 
+estadual para emitir o documento fiscal.
              <br>
              Total R$ (Contingencia): Somatório dos valores das notas retornadas em contingência pela SEFAZ.
              <br>

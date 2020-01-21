@@ -17,14 +17,12 @@ total = len(aa)
 for n, arquivo in enumerate(aa):
     if os.path.basename(arquivo) in ['lotenfce-18013487439502.xml', 'lotenfce-18030655451740.xml']:
         continue
-
     resultado = ''
     correcao = AnaliseArquivoOriResp(arquivo)
     if correcao.arquivo_resposta != '':
-        resultado = 'Substituição não permitida.'
-        if correcao.arquivo_resposta_json['retConsReciNFe']['cStat'] not in ('5020', 5020):
-            a = correcao.analise_arquivo()
-            resultado = banco.adicionar_banco(a)
+        a = correcao.analise_arquivo()
+
+        resultado = banco.adicionar_banco(a)
     else:
         resultado = 'Sem Retorno'
     print(f'''Arquivos: {total}

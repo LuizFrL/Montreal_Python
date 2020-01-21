@@ -10,15 +10,14 @@ class AnaliseArquivoOriResp(object):
     def __init__(self, arquivo):
         self.arquivo_original = arquivo
         self.arquivo_resposta = ArquivoDir().arquivo_resposta(arquivo)
-        print(self.arquivoOriginal_analise())
+        print(self.arquivoOriginal_analise(), end=' ')
         self.arquivo_original_json = Uteis.json_arquivo(self.arquivo_original)
         if self.arquivo_resposta != '':
             self.arquivo_resposta_json = Uteis.json_arquivo(self.arquivo_resposta)
-            if self.arquivo_resposta_json['retConsReciNFe']['cStat'] not in ('5020', 5020):
-                self.sefaz = self.__sefaz()
         else:
             print('Arquivo sem retorno')
         self.valores_autorizacao_nf = self.__autorizacao_total()
+        self.sefaz = self.__sefaz()
 
     def analise_arquivo(self):
         arquivo_inf_banco = {
@@ -43,12 +42,13 @@ class AnaliseArquivoOriResp(object):
                     'autorizacao_total_vPIS': self.valores_autorizacao_nf['vPIS'],
                     'autorizacao_total_vCOFINS': self.valores_autorizacao_nf['vCOFINS'],
                     'obs': '',
-                    'sefaz_qrcode': self.sefaz['link'],
-                    'sefaz_vlTotal': self.sefaz['valor'],
-                    'sefaz_nome': self.sefaz['nome']
+                    'sefaz_qrcode': self.sefaz.get('link'),
+                    'sefaz_vlTotal': 0 if self.sefaz.get('valor') is None else self.sefaz.get('valor'),
+                    'sefaz_nome': self.sefaz.get('nome')
         }
-        return arquivo_inf_banco
 
+        print(arquivo_inf_banco['dtCriacaoArquivo'])
+        return arquivo_inf_banco
 
     def numero_analise(self):
         return self.arquivo_original_json['enviNFe']['NFe']['infNFe']['ide']['nNF']
@@ -57,10 +57,14 @@ class AnaliseArquivoOriResp(object):
         return self.arquivo_original_json['enviNFe']['NFe']['infNFe']['ide']['serie']
 
     def fatura_analise(self):
-        return self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont'][0]['xTexto']
+        for item in self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont']:
+            if 'CodigoFatura' in item.values():
+                return item['xTexto']
 
     def assCodigo_analise(self):
-        return self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont'][1]['xTexto']
+        for item in self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont']:
+            if 'CodigoAssociado' in item.values():
+                return item['xTexto']
 
     def valorTotal_analise(self):
         return self.arquivo_original_json['enviNFe']['NFe']['infNFe']['pag']['detPag']['vPag']
@@ -161,7 +165,7 @@ class AnaliseArquivoOriResp(object):
             valor = int(str(valor).replace(',', '').replace('.', '')) / 100
             retornarValores['valor'] = valor
         except Exception as err:
-            print('Não foi possível encontrar os valores pelo QRCode:', self.arquivoRetorno_analise())
+            print('\nNão foi possível encontrar os valores pelo QRCode:', self.arquivoRetorno_analise())
         finally:
             return retornarValores
 
@@ -172,11 +176,12 @@ class AnaliseArquivoOriResp(object):
         try:
             sefaz_valores = {'link': self.__sefaz_qrcode_analise(self.arquivo_resposta_json['retConsReciNFe']
                                                              ['protNFe']['infProt']['qrCode'])}
-        except KeyError:
-            sefaz_valores = {'link': ''}
 
-        sefaz = self.__valorCFAZ(sefaz_valores['link'])
+            sefaz = self.__valorCFAZ(sefaz_valores['link'])
 
-        sefaz_valores['nome'] = sefaz['Nome']
-        sefaz_valores['valor'] = sefaz['valor']
+            sefaz_valores['nome'] = sefaz['Nome']
+            sefaz_valores['valor'] = sefaz['valor']
+        except Exception:
+            return {}
+
         return sefaz_valores
