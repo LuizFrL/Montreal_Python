@@ -182,7 +182,7 @@ def retornar_arquivos():
 
     print("Iniciando Análise de arquivos...", end='')
     periodo_dias = int(config['envio_email']['dias_analise'])
-    if ultimo_dia_mes() == datetime.now().day:
+    if ultimo_dia_mes().day == datetime.now().day:
         periodo_dias = int(datetime.now().day)
 
     periodo_inicial = datetime.now() - timedelta(days=periodo_dias - 1)
@@ -198,7 +198,7 @@ def retornar_arquivos():
         if arqu.find('.xml') != -1:
             data_arquivo = datetime.fromtimestamp(int(os.stat(f'{diretorio_originais}\\{arqu}').st_ctime))
             format_data = data_arquivo.strftime('%d/%m/%Y')
-            arquivos_[format_data]['arquivos'].append({arqu : data_arquivo}) if format_data in arquivos_.keys() else None
+            arquivos_[format_data]['arquivos'].append({arqu : ''}) if format_data in arquivos_.keys() else None
 
     print("\nTerminando Análise.")
     return arquivos_
@@ -233,7 +233,8 @@ def retornar_valor_tag(dire, tag):
     return sum(valores)
 
 
-print('Iniciando...')
+print('v 1.0 - Iniciando...')
+
 try:
     os.chdir(r'C:\Users\m1015\Desktop\Notas')
 except:
@@ -279,7 +280,7 @@ for data in arquivos_data.keys():
             arquivo_resposta = str(key).replace('lotenfce-', 'respLotenfce-')
 
             diretorio = f'{diretorio_resposta}\\{arquivo_resposta}'
-            if  os.path.exists(diretorio):
+            if os.path.exists(diretorio):
                 quantidade_arquivos_resposta += 1
                 valor_total_retornadas += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
                 arq_string = retornar_string_arquivo(diretorio)
