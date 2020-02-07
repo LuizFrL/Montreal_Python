@@ -14,8 +14,8 @@ class ArquivoDir(object):
         arquivos_xml = []
         for file in os.listdir(self.diretorio_arquivo_original):
             if file[-3:] == 'xml' and len(file) == len('lotenfce-18064052475784.xml'):
-                arquivos_xml.append(str(self.diretorio_arquivo_original + r'\{}'.format(file)))
-        return arquivos_xml
+                arquivos_xml.append(file)
+        return set(arquivos_xml)
 
     def arquivo_resposta(self, arquivo_original):
         return self.__arquivo_resposta_recente(arquivo_original)

@@ -1,4 +1,5 @@
 import pyodbc
+from pandas.io.sql import read_sql
 
 
 class ArquivosBanco(object):
@@ -45,14 +46,16 @@ class ArquivosBanco(object):
         print('Removendo arquivos com erro...')
         self.cursor.execute("""
 DELETE
-from        dbo.nfe_NotasResult
-where       autorizacao_cStat not in (100, 103)
+from    dbo.nfe_NotasResult
+WHERE   autorizacao_cStat not in (100)
 """)
+        print(f'Total de { self.cursor.rowcount } linhas afetadas.')
         self.conexao.commit()
+
         print('Arquivos deletados com sucesso.')
 
     def arquivos(self):
-        return [item['arquivoOriginal'] for item in self.arquivos_banco()]
+        return self.query_execute("""select arquivoOriginal from dbo.nfe_NotasResult""", pd=False)
 
     def format_query(self, valores:'Dicionario com keys=colunas_banco'):
         query = f"""
@@ -69,5 +72,14 @@ VALUES {str(tuple(str(item).replace("'", '') for item in valores.values()))}"""
             self.conexao.commit()
             situacao = 'Nota Fiscal adicionada.'
         except Exception as err:
-            situacao = err
+            situacao = err.__str__()
         return situacao
+
+    def query_execute(self, query, pd=True):
+        print("Executando:", query)
+        if not pd:
+            linhas = [linha[0] for linha in self.cursor.execute(query)]
+            return set(linhas)
+        df = read_sql(query, self.conexao)
+
+        return df

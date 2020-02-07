@@ -57,14 +57,22 @@ class AnaliseArquivoOriResp(object):
         return self.arquivo_original_json['enviNFe']['NFe']['infNFe']['ide']['serie']
 
     def fatura_analise(self):
-        for item in self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont']:
-            if 'CodigoFatura' in item.values():
-                return item['xTexto']
+        try:
+            for item in self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont']:
+                if 'CodigoFatura' in item.values():
+                    return item['xTexto']
+        except:
+            print('Não encontrado Código Fatura')
+            return 0
 
     def assCodigo_analise(self):
-        for item in self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont']:
-            if 'CodigoAssociado' in item.values():
-                return item['xTexto']
+        try:
+            for item in self.arquivo_original_json['enviNFe']['NFe']['infNFe']['infAdic']['obsCont']:
+                if 'CodigoAssociado' in item.values():
+                    return item['xTexto']
+        except:
+            print('Não possível encontrar o Código do Associado')
+            return 0
 
     def valorTotal_analise(self):
         return self.arquivo_original_json['enviNFe']['NFe']['infNFe']['pag']['detPag']['vPag']
@@ -80,7 +88,8 @@ class AnaliseArquivoOriResp(object):
 
     def autorizacao_cStat_analise(self):
         try:
-            autorizacao = self.arquivo_resposta_json['retConsReciNFe']['protNFe']['infProt']['cStat']
+            autorizacao = self.arquivo_resposta_json['retConsReciNFe']['protNFe']['infProt']['cStat'] if \
+            self.status_analise() != '5020' else self.status_analise()
         except KeyError:
             autorizacao = '0'
 
@@ -88,7 +97,10 @@ class AnaliseArquivoOriResp(object):
 
     def autorizacao_motivo_analise(self):
         try:
-            motivo = self.arquivo_resposta_json['retConsReciNFe']['protNFe']['infProt']['xMotivo']
+
+            motivo = self.arquivo_resposta_json['retConsReciNFe']['xMotivo'] if \
+                self.arquivo_resposta_json['retConsReciNFe']['cStat'] == '5020' else \
+                self.arquivo_resposta_json['retConsReciNFe']['protNFe']['infProt']['xMotivo']
         except KeyError:
             motivo = '0'
         return motivo
@@ -165,7 +177,7 @@ class AnaliseArquivoOriResp(object):
             valor = int(str(valor).replace(',', '').replace('.', '')) / 100
             retornarValores['valor'] = valor
         except Exception as err:
-            print('\nNão foi possível encontrar os valores pelo QRCode:', self.arquivoRetorno_analise())
+            print('\nNão foi possível encontrar os valores pelo QRCode:', url)
         finally:
             return retornarValores
 
