@@ -1,19 +1,15 @@
 import os
+from XML_Montreal.Uteis import retornar_inf_tag
 from unidecode import unidecode
 import xml.etree.ElementTree as et
-from datetime import date
+from datetime import date, datetime
 from time import sleep
 import requests
 import json
 import xml.etree.ElementTree
 
 
-def solucoes_temporarias(string):
-    #texto = "Documento emitido para fins de regularizacao da prestacao de servico de intermediacao relativa ao " \
-    #        "periodo de apuracao 12/2019, nos termos da Instrucao Normativa SUREC n. 07, de 25 de setembro de 2009"
-    #string = string.replace('<infAdic>', f'<infAdic><infCpl>{texto}</infCpl>', 1)
-    #string = string.replace('</obsCont>', '</obsCont><obsCont xCampo="IN072009"><xTexto>12/2019</xTexto></obsCont>', 1)
-    #print('--Alterações Feitas--')
+def solucoes_temporarias(string, *args):
     return string
 
 
@@ -304,6 +300,7 @@ def encaminharResultados_Jarvis(erros: 'Lista de erros durante a execução',
     return resultado_encaminhamento
 
 
+
 print('v-1.0')
 try:
     os.chdir(r'C:\Users\m1015\Desktop\Notas')
@@ -323,7 +320,6 @@ try:
         print('Nenhum arquivo no diretório')
         final = encerrarModulo_Jarvis(key_acesso)
         sleep(5)
-        exit()
 except Exception as erro_:
     erro_arquivo.append(f'293l Erro: {str(json.loads(erro_))}')
     encaminharResultados_Jarvis(erro_arquivo, alerta_arquivo)
@@ -369,6 +365,8 @@ for arquiv in arquivos:
     # Trocando acentos do arquivo
     string = unidecode(string)
 
+    data_arquivo = retornar_inf_tag(f'{geradas}\\{arquiv}', '<dCompet>')
+
     # Primeira tratativa, retirar o &
     string = erroNotwellformed(string)
 
@@ -385,7 +383,7 @@ for arquiv in arquivos:
     string = erroCvc_maxLength(string)
 
     # Gerencia situações específicas temporarias
-    string = solucoes_temporarias(string)
+    string = solucoes_temporarias(string, data_arquivo[0])
 
     # Declaração do tratamento de erro, voltado a arquivo com mais de um item
     auxiliar = erroConteudoInvalido(string=string)
@@ -408,4 +406,3 @@ Faltam: {total - marcador}""")
 
 result = encaminharResultados_Jarvis(erro_arquivo, alerta_arquivo)
 final = encerrarModulo_Jarvis(key_acesso)
-sleep(5)

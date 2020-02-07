@@ -4,6 +4,7 @@ from datetime import datetime, date, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from time import sleep
+from XML_Montreal.Uteis import retornar_valor_tag
 import json
 
 
@@ -215,25 +216,7 @@ def retornar_string_arquivo(dir_):
     return conteudo
 
 
-def retornar_valor_tag(dire, tag):
-    tag_end = tag.replace('<', '</')
-    arquivo = open(dire, 'r', encoding='utf-8')
-    linhas = arquivo.readlines()
-    arquivo.close()
-    string = ''
-    for linha in linhas:
-        string += str(linha)
-
-    valores = [ ]
-    while string.find(tag) != -1:
-
-        valores.append(float(string[string.find(tag) + len(tag) : string.find(tag_end)]))
-        string = string.replace(tag, '', 1).replace(tag_end, '', 1)
-
-    return sum(valores)
-
-
-print('v 1.0 - Iniciando...')
+print('v 1.0.1 - Iniciando...')
 
 try:
     os.chdir(r'C:\Users\m1015\Desktop\Notas')
@@ -287,7 +270,7 @@ for data in arquivos_data.keys():
 
                 if arq_string.find('<xMotivo>Autorizado o uso da NF-e</xMotivo>') == -1 \
                         and arq_string.find('<xMotivo>Documento impresso em contingência.</xMotivo>') == -1\
-                        and arq_string.find('<xMotivo>Substituição não permitida: Substituição não permitida</xMotivo>') == -1:
+                        and arq_string.find('inutilizada') == -1:
                     arq_erro += 1
                     valor_total_erro += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
                     arquivos_com_erro.append(arquivo_resposta)

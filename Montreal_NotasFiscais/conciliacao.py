@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from time import sleep
 import json, glob
+from XML_Montreal.Uteis import retornar_valor_tag
 
 
 def retorna_arquivo_recente(num, dir_resposta):
@@ -27,7 +28,8 @@ def verifica_contingencia_erro(lista_strings):
     for item in lista_strings:
         string += item
 
-    return string.find('<xMotivo>Autorizado o uso da NF-e</xMotivo>') == -1
+    return string.find('<xMotivo>Autorizado o uso da NF-e</xMotivo>') == -1 \
+           or string.find('<xMotivo>Rejeição: NF-e já está inutilizada na Base de dados da SEFAZ</xMotivo>') == -1
 
 
 def retornar_config():
@@ -270,24 +272,6 @@ def retornar_string_arquivo(dir_):
     return conteudo
 
 
-def retornar_valor_tag(dire, tag):
-    tag_end = tag.replace('<', '</')
-    arquivo = open(dire, 'r', encoding='utf-8')
-    linhas = arquivo.readlines()
-    arquivo.close()
-    string = ''
-    for linha in linhas:
-        string += str(linha)
-
-    valores = [ ]
-    while string.find(tag) != -1:
-
-        valores.append(float(string[string.find(tag) + len(tag) : string.find(tag_end)]))
-        string = string.replace(tag, '', 1).replace(tag_end, '', 1)
-
-    return sum(valores)
-
-
 def atualiza_json(informacoes_arquivo, config_):
     print('Iniciando atualização Arquivo Json')
 
@@ -326,7 +310,7 @@ if date.today() == ultimo_dia_mes(): # Verificando se é o ultimo dia do mês
     analise_ = 'mensal'
 
 arquivos_data = retornar_arquivos()
-print("Iniciando verificação de erro...")
+print("v1.0 Iniciando verificação de erro...")
 
 for data in arquivos_data.keys():
     quantidade_arquivos = quantidade_arquivos_resposta = arq_erro = em_contingencia = valor_total_erro = 0
@@ -339,20 +323,19 @@ for data in arquivos_data.keys():
     for arq in arquivos_data[data]['arquivos']:
         quantidade_arquivos += 1
 
-
         diretorio_arquivo_original = f'{diretorio_originais}\\{arq}'
         valor_total_enviadas += retornar_valor_tag(diretorio_arquivo_original, '<vProd>')
         arquivo_resposta = str(arq).replace('lotenfce-', '').replace('.xml', '')
         diretorio = retorna_arquivo_recente(arquivo_resposta, diretorio_resposta)
 
-        if  diretorio:
+        if diretorio:
             quantidade_arquivos_resposta += 1
             valor_total_retornadas += retornar_valor_tag(diretorio_arquivo_original, '<vProd>')
             arq_string = retornar_string_arquivo(diretorio)
 
             if arq_string.find('<xMotivo>Autorizado o uso da NF-e</xMotivo>') == -1 \
                     and arq_string.find('<xMotivo>Documento impresso em contingência.</xMotivo>') == -1\
-                    and arq_string.find('<xMotivo>Substituição não permitida: Substituição não permitida</xMotivo>') == -1:
+                    and arq_string.find('<xMotivo>Rejeição: NF-e já está inutilizada na Base de dados da SEFAZ</xMotivo>') == -1:
                 arq_erro += 1
                 valor_total_erro += retornar_valor_tag(diretorio_arquivo_original, '<vProd>')
                 arquivos_com_erro.append(diretorio)
