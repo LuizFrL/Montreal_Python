@@ -79,6 +79,7 @@ VALUES {str(tuple(str(item).replace("'", '') for item in valores.values()))}"""
         print("Executando:", query)
         if not pd:
             linhas = [linha[0] for linha in self.cursor.execute(query)]
+            print("Retornando:", query, end='\n\n')
             return set(linhas)
         df = read_sql(query, self.conexao)
 

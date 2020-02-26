@@ -2,7 +2,7 @@ import os
 from XML_Montreal.Uteis import retornar_inf_tag
 from unidecode import unidecode
 import xml.etree.ElementTree as et
-from datetime import date, datetime
+from datetime import date
 from time import sleep
 import requests
 import json

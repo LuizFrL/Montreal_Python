@@ -7,5 +7,11 @@
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://172.31.0.6</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="@CLTSQL01" uuid="66a1fc5e-c8c1-472c-ae93-ba54c4d3ece8">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://CLTSQL01</jdbc-url>
+    </data-source>
   </component>
 </project>

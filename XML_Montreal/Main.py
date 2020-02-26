@@ -25,8 +25,6 @@ arquivos_ori = arquivoDir.arquivos_originais
 
 aa = arquivos_ori.difference(arquivos_banco)
 
-print(aa.__len__())
-
 diretorio = arquivoDir.diretorio_arquivo_original
 
 total = len(aa)
@@ -45,3 +43,5 @@ Lidos: {n + 1}
 Faltam: {total - (n + 1)}
 Situação: {resultado}
 ''')
+
+
