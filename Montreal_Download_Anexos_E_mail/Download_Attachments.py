@@ -44,18 +44,18 @@ for uid_emails in emails_inbox:
     raw = email.message_from_bytes(email_data[0][1])
     date_e_mail = convert_data(raw['Date'])
     subject = raw['Subject']
-    # if date_e_mail == datetime.datetime.now().date():
-    for part in raw.walk():
-        attachment_name = part.get_filename()
-        if attachment_name and os.path.splitext(attachment_name)[1] in '.pdf':
-            attachment_name = mount_attachment_name(attachment_name, subject)
-            dire = mount_dir(date_e_mail, attachment_name)
-            print(dire)
-            with open(dire, 'wb') as file:
-                file.write(part.get_payload(decode=True))
-    print(f'Movendo e-mail {subject} para {move_folder}\n')
-    result = mail.uid('COPY', uid_emails, move_folder)
+    if date_e_mail == datetime.datetime.now().date():
+        for part in raw.walk():
+            attachment_name = part.get_filename()
+            if attachment_name and os.path.splitext(attachment_name)[1] in '.pdf':
+                attachment_name = mount_attachment_name(attachment_name, subject)
+                dire = mount_dir(date_e_mail, attachment_name)
+                print(dire)
+                with open(dire, 'wb') as file:
+                    file.write(part.get_payload(decode=True))
+        print(f'Movendo e-mail {subject} para {move_folder}\n')
+        result = mail.uid('COPY', uid_emails, move_folder)
 
-    if result[0] == 'OK':
-        mov, data = mail.uid('STORE', uid_emails, '+FLAGS', '(\\Deleted)')
-        mail.expunge()
+        if result[0] == 'OK':
+            mov, data = mail.uid('STORE', uid_emails, '+FLAGS', '(\\Deleted)')
+            mail.expunge()
