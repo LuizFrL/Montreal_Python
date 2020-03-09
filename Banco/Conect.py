@@ -2,12 +2,17 @@ import pyodbc, pandas as pd
 
 
 class Conect(object):
-    def __init__(self):
-        self.driver = '{SQL Server Native Client 11.0}'
-        self.server = 'cltsql01'
-        self.database = 'montreal'
-        self.usuario = 'web_usr'
-        self.pasword = 'Ch4rm8s8'
+    def __init__(self, driver='{SQL Server Native Client 11.0}',
+                 server='cltsql01',
+                 database='montreal',
+                 usuario='web_usr',
+                 pasword='Ch4rm8s8'):
+
+        self.driver = driver
+        self.server = server
+        self.database = database
+        self.usuario = usuario
+        self.pasword = pasword
         self.conexao = pyodbc.connect(f'DRIVER={self.driver};'
                                       f'SERVER={self.server};'
                                       f'DATABASE={self.database};'
