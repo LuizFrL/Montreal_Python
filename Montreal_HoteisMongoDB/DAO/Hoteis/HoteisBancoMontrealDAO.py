@@ -1,6 +1,6 @@
 import json
 import pandas as pd
-from Montreal_HoteisMongoDB.DAO.Conect import Conect
+from Banco.Conect import Conect
 
 
 class HoteisBancoMontrealDAO(Conect):

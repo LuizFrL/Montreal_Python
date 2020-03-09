@@ -11,8 +11,16 @@
       <user-name>nfe</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="database" qname="@">
-            <node kind="schema" qname="@" />
+          <node negative="1">
+            <node kind="database" qname="@">
+              <node kind="schema" qname="@" />
+            </node>
+            <node kind="database" qname="Montreal">
+              <node kind="schema">
+                <name qname="hoteis" />
+                <name qname="hotelaria" />
+              </node>
+            </node>
           </node>
         </introspection-scope>
       </schema-mapping>
@@ -27,8 +35,11 @@
       <domain-auth>true</domain-auth>
       <schema-mapping>
         <introspection-scope>
-          <node kind="database" qname="@">
-            <node kind="schema" qname="@" />
+          <node negative="1">
+            <node kind="database" qname="MAIL_AUDIT">
+              <node kind="schema" negative="1" />
+            </node>
+            <node kind="database" qname="master" />
           </node>
         </introspection-scope>
       </schema-mapping>
