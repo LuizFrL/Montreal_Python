@@ -3,6 +3,17 @@ import os
 import xmltodict
 
 
+def modfi_string(string, num):
+    pos_innicial = string.find('<nNF>') + len('<nNF>')
+
+    pos_final = string.find('</nNF>')
+    string__ = string[0:pos_innicial]
+    __string = string[pos_final::]
+
+    string = string__ + f'{num}' + __string
+    return string
+
+
 def configuracoes():
     with open(r'{}\config.json'.format(os.path.dirname(os.path.realpath(__file__))), 'r', encoding='utf-8') as file:
         return json.load(file)

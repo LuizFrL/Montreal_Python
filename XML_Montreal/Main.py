@@ -4,17 +4,6 @@ from XML_Montreal.Arquivos.AnaliseArquivo import AnaliseArquivoOriResp
 import os
 
 
-def modfi_string(string, num):
-    pos_innicial = string.find('<nNF>') + len('<nNF>')
-
-    pos_final = string.find('</nNF>')
-    string__ = string[0:pos_innicial]
-    __string = string[pos_final::]
-
-    string = string__ + f'{num}' + __string
-    return string
-
-
 arquivoDir = ArquivoDir()
 banco = ArquivosBanco()
 
