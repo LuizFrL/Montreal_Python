@@ -21,7 +21,7 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
             'body_html': self.arquivo_email.get_email_html()
         }
         print(tuple(dados.values()))
-        return self.insert_mensagens(tuple(dados.keys()))
+        #return self.insert_mensagens(tuple(dados.keys()))
 
     def create_id_email(self) -> str:
         pass
@@ -39,4 +39,4 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
 if __name__ == '__main__':
     b = LerArquivoEmail(r'C:\Users\m1015\Documents\E-mail\chamado - 17181\1580351016.Vca01I1a1ff0M735250.webmail.eml')
     a = IndexarAqruivosBancoDTO(b)
-    a.inserir_dados_dbo_mensagens()
+    #a.inserir_dados_dbo_mensagens()

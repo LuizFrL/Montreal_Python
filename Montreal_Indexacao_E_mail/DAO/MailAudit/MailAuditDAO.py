@@ -4,7 +4,7 @@ from Banco.Conect import Conect
 class MailAuditDAO(Conect):
 
     def __init__(self):
-        Conect.__init__(self, trusted_connection=True)
+        Conect.__init__(self, database='MAIL_AUDIT', trusted_connection=True)
 
     def insert_endereco_emails(self, itens: tuple):
         query = f"""
