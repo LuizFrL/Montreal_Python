@@ -1,4 +1,4 @@
-import email
+import email, glob
 
 
 class LerArquivoEmail(object):
@@ -37,7 +37,24 @@ class LerArquivoEmail(object):
         return texto
 
     def get_email_html(self):
-        return self.msg.get_payload()[0]
+        return str(self.msg.get_payload()[0])
 
     def get_dir_arquivo(self):
         return self.dir_arquivo
+
+    def get_email_attachment_content_type(self):
+        attachment_content_type = {}
+        for pa in self.msg.walk():
+            if pa.get_filename():
+                attachment_content_type[pa.get_filename()] = pa.get_content_type()
+        return attachment_content_type
+
+    def create_id_email(self):
+        pass
+
+
+if __name__ == '__main__':
+    for di in glob.glob(r'C:\Users\m1015\Documents\E-mail\**\*.eml', recursive=True):
+        e_m = LerArquivoEmail(di)
+        print(e_m.get_email_attachment_content_type())
+        print(type(e_m))
