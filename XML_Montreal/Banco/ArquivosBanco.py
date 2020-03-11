@@ -7,7 +7,7 @@ class ArquivosBanco(Conect):
         super().__init__(usuario='nfe', pasword='nfe2019', server='172.31.0.6')
 
     def arquivos_banco(self):
-        return self._exec_query("""select * from dbo.nfe_NotasResult""")
+        return self._exec_select_query("""select * from dbo.nfe_NotasResult""")
 
     def remover_arquivos_erro(self):
         print('Removendo arquivos com erro...')
@@ -22,7 +22,7 @@ WHERE   autorizacao_cStat not in (100)
         print('Arquivos deletados com sucesso.')
 
     def arquivos(self):
-        return self._exec_query("""select arquivoOriginal from dbo.nfe_NotasResult""")
+        return self._exec_select_query("""select arquivoOriginal from dbo.nfe_NotasResult""")
 
     def format_query(self, valores:'Dicionario com keys=colunas_banco'):
         query = f"""

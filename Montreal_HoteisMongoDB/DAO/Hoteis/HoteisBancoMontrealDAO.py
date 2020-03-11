@@ -32,7 +32,7 @@ from    hotelaria.Parceiro as p
             inner join hotelaria.Hotel as h ON 
                 h.codHotel = p.codParceiro
 """
-        df = self._exec_query(query)
+        df = self._exec_select_query(query)
         return df
 
 
