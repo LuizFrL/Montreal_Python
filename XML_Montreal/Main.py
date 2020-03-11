@@ -8,8 +8,7 @@ arquivoDir = ArquivoDir()
 banco = ArquivosBanco()
 
 banco.remover_arquivos_erro()
-
-arquivos_banco = banco.arquivos()
+arquivos_banco = set(banco.arquivos()['arquivoOriginal'])
 arquivos_ori = arquivoDir.arquivos_originais
 
 aa = arquivos_ori.difference(arquivos_banco)

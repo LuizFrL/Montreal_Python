@@ -1,46 +1,13 @@
-import pyodbc
-from pandas.io.sql import read_sql
+from Banco.Conect import Conect
 
 
-class ArquivosBanco(object):
+class ArquivosBanco(Conect):
 
     def __init__(self):
-        self.driver = '{SQL Server Native Client 11.0}'
-        self.server = '172.31.0.6'
-        self.database = 'montreal'
-        self.usuario = 'nfe'
-        self.pasword = 'nfe2019'
-        self.conexao = pyodbc.connect(f'DRIVER={self.driver};'
-                                      f'SERVER={self.server};'
-                                      f'DATABASE={self.database};'
-                                      f'UID={self.usuario};'
-                                      f'PWD={self.pasword}')
-        self.cursor = self. conexao.cursor()
-
-    def informacoes_tabela(self):
-        print('Coletando Linhas da Tabela.')
-        linhas = self.cursor.execute("""select * from dbo.nfe_NotasResult""")
-        return [linha for linha in linhas]
-
-    def colunas_tabela(self):
-        print('Coletando Colunas da Tabela.')
-        colunas = self.cursor.execute("""EXECUTE sp_columns nfe_NotasResult""")
-        return [coluna[3] for coluna in colunas]
+        super().__init__(usuario='nfe', pasword='nfe2019', server='172.31.0.6')
 
     def arquivos_banco(self):
-        print('Montando Informações.')
-        colunas = self.colunas_tabela()
-        linhas = self.informacoes_tabela()
-        return self.__montar_estrutura(colunas, linhas)
-
-    def __montar_estrutura(self, colunas, linhas):
-        arquivos = []
-        for linha in linhas:
-            arq = {}
-            for index, coluna in enumerate(colunas):
-                arq[coluna] = linha[index]
-            arquivos.append(arq)
-        return arquivos
+        return self._exec_query("""select * from dbo.nfe_NotasResult""")
 
     def remover_arquivos_erro(self):
         print('Removendo arquivos com erro...')
@@ -55,7 +22,7 @@ WHERE   autorizacao_cStat not in (100)
         print('Arquivos deletados com sucesso.')
 
     def arquivos(self):
-        return self.query_execute("""select arquivoOriginal from dbo.nfe_NotasResult""", pd=False)
+        return self._exec_query("""select arquivoOriginal from dbo.nfe_NotasResult""")
 
     def format_query(self, valores:'Dicionario com keys=colunas_banco'):
         query = f"""
@@ -66,7 +33,6 @@ VALUES {str(tuple(str(item).replace("'", '') for item in valores.values()))}"""
     def adicionar_banco(self, coluna_valores, ver_query=False):
         query = self.format_query(coluna_valores)
         print(query) if ver_query else None
-
         try:
             self.cursor.execute(query)
             self.conexao.commit()
@@ -75,12 +41,3 @@ VALUES {str(tuple(str(item).replace("'", '') for item in valores.values()))}"""
             situacao = err.__str__()
         return situacao
 
-    def query_execute(self, query, pd=True):
-        print("Executando:", query)
-        if not pd:
-            linhas = [linha[0] for linha in self.cursor.execute(query)]
-            print("Retornando:", query, end='\n\n')
-            return set(linhas)
-        df = read_sql(query, self.conexao)
-
-        return df
