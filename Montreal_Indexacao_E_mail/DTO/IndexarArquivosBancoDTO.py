@@ -20,11 +20,19 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
             'body_text': self.arquivo_email.get_email_text(),
             'body_html': self.arquivo_email.get_email_html()
         }
-        print(tuple(dados.values()))
         #return self.insert_mensagens(tuple(dados.keys()))
+        return dados
 
     def inserir_dados_anexos(self):
-        pass
+        dados_anexo = self.arquivo_email.get_email_attachment_info()
+        inserir = ''
+        for index, anexo in enumerate(dados_anexo):
+            inserir += f"""
+('{anexo["id"]}', '{anexo["md5"]}', '{anexo["Name"]}', '{anexo["Content_Type"]}', '{anexo["Size"]}')"""
+            if index + 1 != len(dados_anexo):
+                inserir += ', '
+        #return self.insert_anexos(inserir)
+        return inserir
 
     def inserir_dados_mensagem_to(self):
         pass
@@ -37,6 +45,7 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
 
 
 if __name__ == '__main__':
-    b = LerArquivoEmail(r'C:\Users\m1015\Documents\E-mail\chamado - 17181\1580351016.Vca01I1a1ff0M735250.webmail.eml')
+    b = LerArquivoEmail(r'C:\Users\m1015\Documents\E-mail\Faturas para pagamento - 28379 - 28387.eml')
     a = IndexarAqruivosBancoDTO(b)
-    #a.inserir_dados_dbo_mensagens()
+    c = a.inserir_dados_anexos()
+    print(c)

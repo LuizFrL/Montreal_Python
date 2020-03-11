@@ -8,23 +8,23 @@ class MailAuditDAO(Conect):
     def __init__(self):
         Conect.__init__(self, database='MAIL_AUDIT', trusted_connection=True)
 
-    def insert_endereco_emails(self, itens: tuple):
+    def insert_endereco_emails(self, itens: str):
         query = f"""
         INSERT INTO dbo.endereco_emails
-        VALUES  {str(itens)}
+        VALUES  {itens}
         """
         self._exec_insert_query(query)
 
-    def insert_mensagens(self, itens: tuple):
+    def insert_mensagens(self, itens: str):
         query = f"""
         INSERT INTO dbo.mensagens
-        VALUES  {str(itens)}
+        VALUES  {itens}
         """
         self._exec_insert_query(query)
 
     def insert_anexos(self, itens: str):
         query = f"""
-        INSERT INTO dbo.anexos
+        INSERT INTO dbo.anexos ( id_anexo, md5, filename, content_type, tamanho )
         VALUES  {itens}"""
         self._exec_insert_query(query)
 

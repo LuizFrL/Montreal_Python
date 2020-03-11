@@ -1,4 +1,5 @@
 import email, glob, os
+import hashlib
 
 
 class LerArquivoEmail(object):
@@ -11,7 +12,7 @@ class LerArquivoEmail(object):
 
     @staticmethod
     def get_msg_email(dir_arquivo):
-        with open(dir_arquivo) as f_email:
+        with open(dir_arquivo, 'r', encoding='utf-8') as f_email:
             return email.message_from_file(f_email)
 
     def get_email_from(self):
@@ -44,7 +45,7 @@ class LerArquivoEmail(object):
     def get_dir_arquivo(self):
         return self.dir_arquivo
 
-    def get_email_attachment_content_type(self):
+    def get_email_attachment_info(self):
         inf_attachments = []
         for pa in self.msg.walk():
             if pa.get_filename():
@@ -52,7 +53,8 @@ class LerArquivoEmail(object):
                     'id': self.create_id_anexo(),
                     'Name': pa.get_filename(),
                     'Content_Type': pa.get_content_type(),
-                    'Size': self.__get_size_attachment(pa.get_filename(), pa.get_payload())
+                    'Size': self.__get_size_attachment(pa.get_filename(), pa.get_payload()),
+                    'md5': hashlib.md5(pa.get_payload().encode()).hexdigest()
                 }
                 inf_attachments.append(attachment_content_type)
         return inf_attachments
@@ -81,4 +83,4 @@ if __name__ == '__main__':
     # for di in glob.glob(r'C:\Users\m1015\Documents\E-mail\**\*.eml', recursive=True):
     di = r'C:\Users\m1015\Documents\E-mail\Faturas para pagamento - 28379 - 28387.eml'
     e_m = LerArquivoEmail(di)
-    print(e_m.get_email_attachment_content_type())
+    print(e_m.get_email_attachment_info())
