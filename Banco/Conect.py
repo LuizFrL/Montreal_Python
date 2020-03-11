@@ -23,9 +23,14 @@ DATABASE={self.database};'''
         self.conexao = pyodbc.connect(connect_inf, autocommit=True)
         self.cursor = self.conexao.cursor()
 
-    def _exec_query(self, query) -> pd:
+    def _exec_select_query(self, query) -> pd:
         print(query)
         return pd.read_sql(query, self.conexao)
+
+    def _exec_insert_query(self, query: str):
+        print(query)
+        self.cursor.execute(query)
+        self.conexao.commit()
 
 
 if __name__ == '__main__':
