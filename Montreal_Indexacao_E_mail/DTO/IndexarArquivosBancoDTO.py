@@ -9,12 +9,12 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
         MailAuditDAO.__init__(self)
         self.arquivo_email = arquivo_email
 
-    def inserir_dados_dbo_mensagens(self):
+    def inserir_dados_mensagens(self):
         dados = {
-            'id_mensagem': self.create_id_mensagem(),
+            'id_mensagem': self.arquivo_email.id_mensagem,
             'nome_do_arquivo': self.arquivo_email.get_dir_arquivo(),
             'message_id': self.arquivo_email.get_email_message_id(),
-            'id_from': self.create_id_from(),
+            'id_from': self.arquivo_email.id_from,
             'header_subject': self.arquivo_email.get_email_subject(),
             'header_date': str(convert_data(self.arquivo_email.get_email_date(), full=True)),
             'body_text': self.arquivo_email.get_email_text(),
@@ -23,16 +23,16 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
         print(tuple(dados.values()))
         #return self.insert_mensagens(tuple(dados.keys()))
 
-    def create_id_email(self) -> str:
+    def inserir_dados_anexos(self):
         pass
 
-    def create_id_anexo(self) -> str:
+    def inserir_dados_mensagem_to(self):
         pass
 
-    def create_id_mensagem(self) -> str:
+    def inserir_dados_mensagem_anexos(self):
         pass
 
-    def create_id_from(self) -> str:
+    def inserir_dados_endereco_emails(self):
         pass
 
 

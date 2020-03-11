@@ -1,9 +1,11 @@
-import email, glob
+import email, glob, os
 
 
 class LerArquivoEmail(object):
 
     def __init__(self, arquivo):
+        self.id_from = self.create_id_from()
+        self.id_mensagem = self.create_id_mensagem()
         self.dir_arquivo = arquivo
         self.msg = self.get_msg_email(arquivo)
 
@@ -43,18 +45,40 @@ class LerArquivoEmail(object):
         return self.dir_arquivo
 
     def get_email_attachment_content_type(self):
-        attachment_content_type = {}
+        inf_attachments = []
         for pa in self.msg.walk():
             if pa.get_filename():
-                attachment_content_type[pa.get_filename()] = pa.get_content_type()
-        return attachment_content_type
+                attachment_content_type = {
+                    'id': self.create_id_anexo(),
+                    'Name': pa.get_filename(),
+                    'Content_Type': pa.get_content_type(),
+                    'Size': self.__get_size_attachment(pa.get_filename(), pa.get_payload())
+                }
+                inf_attachments.append(attachment_content_type)
+        return inf_attachments
+
+    def __get_size_attachment(self, name, payload):
+        with open(name, 'w') as f:
+            f.write(payload)
+            size = os.stat(name).st_size
+        os.unlink(name)
+        return size
 
     def create_id_email(self):
         pass
 
+    def create_id_anexo(self) -> str:
+        pass
+
+    def create_id_mensagem(self) -> str:
+        pass
+
+    def create_id_from(self) -> str:
+        pass
+
 
 if __name__ == '__main__':
-    for di in glob.glob(r'C:\Users\m1015\Documents\E-mail\**\*.eml', recursive=True):
-        e_m = LerArquivoEmail(di)
-        print(e_m.get_email_attachment_content_type())
-        print(type(e_m))
+    # for di in glob.glob(r'C:\Users\m1015\Documents\E-mail\**\*.eml', recursive=True):
+    di = r'C:\Users\m1015\Documents\E-mail\Faturas para pagamento - 28379 - 28387.eml'
+    e_m = LerArquivoEmail(di)
+    print(e_m.get_email_attachment_content_type())

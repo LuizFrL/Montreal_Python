@@ -1,3 +1,5 @@
+import time
+
 from Banco.Conect import Conect
 
 
@@ -11,14 +13,21 @@ class MailAuditDAO(Conect):
         INSERT INTO dbo.endereco_emails
         VALUES  {str(itens)}
         """
-        return self._exec_query(query)
+        self._exec_insert_query(query)
 
     def insert_mensagens(self, itens: tuple):
         query = f"""
         INSERT INTO dbo.mensagens
         VALUES  {str(itens)}
         """
-        return self._exec_query(query)
+        self._exec_insert_query(query)
 
-    def insert_anexos(self, itens: tuple):
-        pass
+    def insert_anexos(self, itens: str):
+        query = f"""
+        INSERT INTO dbo.anexos
+        VALUES  {itens}"""
+        self._exec_insert_query(query)
+
+
+if __name__ == '__main__':
+    teste_connection = MailAuditDAO()
