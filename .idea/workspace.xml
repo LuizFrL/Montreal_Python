@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2805b559-cebf-44bb-9b82-feac4f3df9e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banco/Conect.py" beforeDir="false" afterPath="$PROJECT_DIR$/Banco/Conect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Montreal_HoteisMongoDB/DAO/Hoteis/HoteisBancoMontrealDAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/Montreal_HoteisMongoDB/DAO/Hoteis/HoteisBancoMontrealDAO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DAO/MailAudit/MailAuditDAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DAO/MailAudit/MailAuditDAO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO/IndexarArquivosBancoDTO.py" beforeDir="false" afterPath="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO/IndexarArquivosBancoDTO.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Service/LerArquivoEmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Service/LerArquivoEmail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML_Montreal/Banco/ArquivosBanco.py" beforeDir="false" afterPath="$PROJECT_DIR$/XML_Montreal/Banco/ArquivosBanco.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +42,12 @@
         <item name="@CLTSQL01" type="feb32156:DbDataSourceImpl" />
         <item name="MAIL_AUDIT: database" type="ccb7ac2a:MsImplModel$Database" />
         <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
-        <item name="anexos: table" type="63ab2ba1:MsImplModel$Table" />
+        <item name="mensagens: table" type="63ab2ba1:MsImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@CLTSQL01" type="feb32156:DbDataSourceImpl" />
+        <item name="Montreal: database" type="ccb7ac2a:MsImplModel$Database" />
       </path>
     </expand>
     <select />
@@ -87,7 +87,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/scratches" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -101,7 +101,29 @@
       <recent name="C:\Users\m1015\PycharmProjects\Montreal_Python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.LerArquivoEmail">
+  <component name="RunManager" selected="Python.IndexarArquivosBancoDTO">
+    <configuration name="IndexarArquivosBancoDTO" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Montreal_Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO/IndexarArquivosBancoDTO.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="LerArquivoEmail" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Montreal_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,28 +138,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Service/LerArquivoEmail.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MailAuditDAO" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Montreal_Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DAO/MailAudit" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DAO/MailAudit/MailAuditDAO.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -214,11 +214,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LerArquivoEmail" />
+        <item itemvalue="Python.IndexarArquivosBancoDTO" />
         <item itemvalue="Python.Teste2" />
+        <item itemvalue="Python.LerArquivoEmail" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.verificando_envio" />
-        <item itemvalue="Python.MailAuditDAO" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +305,7 @@
       <workItem from="1582817921630" duration="25021000" />
       <workItem from="1583165932311" duration="13323000" />
       <workItem from="1583262337945" duration="4475000" />
-      <workItem from="1583768772604" duration="45561000" />
+      <workItem from="1583768772604" duration="57243000" />
     </task>
     <task id="LOCAL-00001" summary="Conectando Python com o MomgoDB e fazendo insert de dados.">
       <created>1582058487098</created>
@@ -373,22 +373,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583253293748" />
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1583954766295">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1583963971093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583954766295" />
-    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1583954766295">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583963971093" />
+    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1583963971092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583954766295" />
-    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1583954766295">
+    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583963971092" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1583963971092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583954766295" />
-    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1583954766295">
+    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583963971092" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1583963971093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583954766295" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583963971093" />
     <state width="1877" height="320" key="GridCell.Tab.1.bottom" timestamp="1582738847240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -409,10 +409,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="199" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1583861082776" />
-    <state x="461" y="161" key="SettingsEditor" timestamp="1583871830920">
+    <state x="461" y="161" key="SettingsEditor" timestamp="1583961250475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583871830920" />
+    <state x="461" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583961250475" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1579204555404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -449,10 +449,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581704700117" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583866325156">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583960308431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583866325156" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583960308431" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Montreal_Python$ArquivosBanco.coverage" NAME="ArquivosBanco Coverage Results" MODIFIED="1581110047360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/XML_Montreal/Banco" />
@@ -464,9 +464,9 @@
     <SUITE FILE_PATH="coverage/Montreal_Python$conciliacao.coverage" NAME="conciliacao Coverage Results" MODIFIED="1580929111949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_NotasFiscais" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Teste.coverage" NAME="Teste Coverage Results" MODIFIED="1583866799189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Montreal_Python$tratamentoJarvis.coverage" NAME="tratamentoJarvis Coverage Results" MODIFIED="1580843282752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_NotasFiscais" />
-    <SUITE FILE_PATH="coverage/Montreal_Python$Teste2.coverage" NAME="Teste2 Coverage Results" MODIFIED="1583949955287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
-    <SUITE FILE_PATH="coverage/Montreal_Python$LerArquivoEmail.coverage" NAME="LerArquivoEmail Coverage Results" MODIFIED="1583954571070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Service" />
-    <SUITE FILE_PATH="coverage/Montreal_Python$IndexarArquivosBancoDTO.coverage" NAME="IndexarArquivosBancoDTO Coverage Results" MODIFIED="1583872824921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$Teste2.coverage" NAME="Teste2 Coverage Results" MODIFIED="1583963088347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$LerArquivoEmail.coverage" NAME="LerArquivoEmail Coverage Results" MODIFIED="1583960621783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Service" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$IndexarArquivosBancoDTO.coverage" NAME="IndexarArquivosBancoDTO Coverage Results" MODIFIED="1583963875314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Chamados.coverage" NAME="Chamados Coverage Results" MODIFIED="1580919622937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Montreal_Python$replace_functions.coverage" NAME="replace_functions Coverage Results" MODIFIED="1583258391433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches/keyboard_listener" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Teste3.coverage" NAME="Teste3 Coverage Results" MODIFIED="1583872681226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
