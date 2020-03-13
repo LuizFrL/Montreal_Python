@@ -20,32 +20,49 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
             'body_text': self.arquivo_email.get_email_text(),
             'body_html': self.arquivo_email.get_email_html()
         }
-        #return self.insert_mensagens(tuple(dados.keys()))
-        return dados
+        return self._insert_mensagens(str(tuple(dados.values())))
 
     def inserir_dados_anexos(self):
         dados_anexo = self.arquivo_email.get_email_attachment_info()
-        inserir = ''
+        query = ''
+        if not dados_anexo:
+            print('Sem anexo')
+            return
         for index, anexo in enumerate(dados_anexo):
-            inserir += f"""
+            query += f"""
 ('{anexo["id"]}', '{anexo["md5"]}', '{anexo["Name"]}', '{anexo["Content_Type"]}', '{anexo["Size"]}')"""
             if index + 1 != len(dados_anexo):
-                inserir += ', '
-        #return self.insert_anexos(inserir)
-        return inserir
+                query += ', '
+        return self._insert_anexos(query)
 
     def inserir_dados_mensagem_to(self):
-        pass
+        query = f"('{self.arquivo_email.id_mensagem}', '{self.arquivo_email.id_email}')"
+        return self._insert_mensagem_to(query)
 
     def inserir_dados_mensagem_anexos(self):
-        pass
+        todos_anexos = self.arquivo_email.get_email_attachment_info()
+        query = ''
+        if not todos_anexos:
+            print('Sem dados de anexo')
+            return
+        for index, anexo in enumerate(todos_anexos):
+            query += f"""
+        ('{self.arquivo_email.id_mensagem}', '{anexo["id"]}')"""
+            if index + 1 != len(todos_anexos):
+                query += ', '
+        return self._insert_mensagem_anexos(query)
 
     def inserir_dados_endereco_emails(self):
-        pass
+        query = ''
+        emails_to = self.arquivo_email.get_email_to()
+        for index, emai in enumerate(emails_to):
+            query += f"""( '{self.arquivo_email.id_email}', '{emai["Name"]}', '{emai["email"]}' )"""
+            if index + 1 != len(emails_to):
+                query += ', '
+        self._insert_endereco_emails(query)
 
 
 if __name__ == '__main__':
     b = LerArquivoEmail(r'C:\Users\m1015\Documents\E-mail\Faturas para pagamento - 28379 - 28387.eml')
     a = IndexarAqruivosBancoDTO(b)
-    c = a.inserir_dados_anexos()
-    print(c)
+'bd65600d-8669-4903-8a14-af88203add38'
