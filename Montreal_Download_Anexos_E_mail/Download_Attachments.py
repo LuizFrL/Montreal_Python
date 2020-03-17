@@ -1,5 +1,7 @@
 import imaplib, email, time, datetime, email.utils
 import os
+from email.header import decode_header, Header
+
 from Montreal_Download_Anexos_E_mail import Inf
 
 
@@ -28,14 +30,15 @@ def mount_attachment_name(attachment_name, subject):
 
 
 if __name__ == '__main__':
+    print('Versão 1.0.1')
     u = Inf.user()
     p = Inf.password()
 
     mail = imaplib.IMAP4_SSL("imap.gmail.com")
     mail.login(u, p)
 
-    move_folder = 'Faturas_L'
-    res = mail.select('Faturas')
+    move_folder = 'Teste'
+    res = mail.select('inbox')
     result, data = mail.uid('search', None, f'(SENTSINCE {datetime.datetime.now().strftime("%d-%b-%Y")})')
     # '(UNSEEN)' para selecionar apenas emails não lidos,
     # f'(SENTSINCE {datetime.datetime.now().strftime("%d-%b-%Y")})' para e-mails de hoje
@@ -47,6 +50,8 @@ if __name__ == '__main__':
         raw = email.message_from_bytes(email_data[0][1])
         date_e_mail = convert_data(raw['Date'])
         subject = raw['Subject']
+        header = decode_header(subject)[0]
+        subject = str(Header(header[0], header[1] if not None else 'utf-8'))
         if date_e_mail == datetime.datetime.now().date():
             for part in raw.walk():
                 attachment_name = part.get_filename()
