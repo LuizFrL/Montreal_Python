@@ -41,6 +41,12 @@ class MailAuditDAO(Conect):
                 VALUES {itens}"""
         return self._exec_insert_query(query)
 
+    def select_mail_files(self):
+        return self._exec_select_query("""
+        SELECT      concat('./', nome_do_arquivo, '\n') as arquivo
+        FROM        dbo.mensagens
+        WHERE       nome_do_arquivo like '%webmail%'""")
+
 
 if __name__ == '__main__':
     teste_connection = MailAuditDAO()
