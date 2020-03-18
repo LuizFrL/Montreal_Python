@@ -3,7 +3,7 @@ import pyodbc, pandas as pd
 
 class Conect(object):
 
-    def __init__(self, driver='{SQL Server Native Client 11.0}',
+    def __init__(self, driver='{ODBC Driver 13 for SQL Server}',
                  server='cltsql01',
                  database='montreal',
                  usuario='0',
@@ -20,7 +20,7 @@ DATABASE={self.database};'''
             connect_inf += '\nTrusted_Connection=yes;'
         else:
             connect_inf += f'\nUID={self.usuario};\nPWD={self.pasword};'
-        self.conexao = pyodbc.connect(connect_inf, autocommit=True)
+        self.conexao = pyodbc.connect(connect_inf, autocommit=False)
         self.cursor = self.conexao.cursor()
 
     def _exec_select_query(self, query) -> pd:
@@ -30,7 +30,6 @@ DATABASE={self.database};'''
     def _exec_insert_query(self, query: str):
         print(query)
         self.cursor.execute(query)
-        self.conexao.commit()
 
 
 if __name__ == '__main__':
