@@ -1,8 +1,7 @@
 import imaplib, email, time, datetime, email.utils
 import os
 from email.header import decode_header, Header
-
-from Montreal_Download_Anexos_E_mail import Inf
+import Inf
 
 
 def convert_data(string_email_data, full=False):

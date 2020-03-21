@@ -28,7 +28,7 @@ DATABASE={self.database};'''
         return pd.read_sql(query, self.conexao)
 
     def _exec_insert_query(self, query: str):
-        print(query)
+        #print(query)
         self.cursor.execute(query)
 
 
