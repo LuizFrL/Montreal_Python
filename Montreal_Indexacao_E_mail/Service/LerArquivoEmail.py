@@ -26,21 +26,28 @@ class LerArquivoEmail(object):
 
     @staticmethod
     def __get_size_attachment(name, payload):
-        with open(name, 'w') as f:
-            f.write(payload)
-            size = os.stat(name).st_size
-        os.unlink(name)
+        not_chars = ["\\", '/', '|', '*', '"', '?', '<', '>', '=', ':', '\n', '\r', '\t']
+        try:
+            name = "".join([char if char not in not_chars else "" for char in name])
+            with open(name, 'w') as f:
+                f.write(str(payload))
+                size = os.stat(name).st_size
+            os.unlink(name)
+        except OSError:
+            print('Impossível identificar o arquivo', name)
+            size = 0
         return size
 
     def __formatar_email_name(self, email: str):
         inf = {}
         if email.find("<") != -1:
             if email.find("<") != -1:
-                name_email = email.replace('>', '').replace('"', '').replace('\n', "").replace("'", "")\
+                name_email = email.replace('>', '').replace('"', '').replace('\n', "").replace("'", "") \
                     .replace('\t', "").split('<')
-                inf['Name'], inf['email'] = self.__format_mime(name_email[0].strip()), name_email[1].strip()
+                inf['Name'] = self.__format_mime(name_email[0].strip())
+                inf['email'] = self.__format_mime(name_email[1].strip())
         else:
-            inf['Name'], inf["email"] = "", email
+            inf['Name'], inf["email"] = "", self.__format_mime(email)
         inf['id'] = self.__create_id_email()
         return inf
 
@@ -55,6 +62,8 @@ class LerArquivoEmail(object):
                         names_emails.append(self.__formatar_email_name(em_to_clean))
                 else:
                     names_emails.append(self.__formatar_email_name(self.msg[form]))
+        if not names_emails:
+            names_emails.append({'id': self.__create_id_email(), 'Name': '', 'email': ''})
         return names_emails
 
     def get_email_from(self):
@@ -70,7 +79,7 @@ class LerArquivoEmail(object):
         return self.__format_mime(self.msg['Subject'])
 
     def get_email_message_id(self):
-        return self.msg['Message-ID']
+        return self.msg['Message-ID'] if self.msg['Message-ID'] else ''
 
     def get_email_text(self):
         texto = ''
@@ -81,8 +90,9 @@ class LerArquivoEmail(object):
         return self.__format_mime(texto)
 
     def get_email_html(self):
-        return str(self.msg.get_payload()[0]).replace("'", "")
-
+        if type(self.msg.get_payload()) == list:
+            return str(self.msg.get_payload()[0]).replace("'", "")
+        return self.msg.get_payload().replace("'", '')
     def get_dir_arquivo(self):
         return self.dir_arquivo
 
@@ -99,7 +109,7 @@ class LerArquivoEmail(object):
                     'Name': self.__format_mime(pa.get_filename()),
                     'Content_Type': pa.get_content_type(),
                     'Size': self.__get_size_attachment(self.__format_mime(pa.get_filename()), pa.get_payload()),
-                    'md5': hashlib.md5(pa.get_payload().encode()).hexdigest()
+                    'md5': hashlib.md5("".join(str(c) for c in pa.get_payload()).encode()).hexdigest()
                 }
                 inf_attachments.append(attachment_content_type)
         return inf_attachments
@@ -129,8 +139,10 @@ class LerArquivoEmail(object):
 
     @staticmethod
     def __format_mime(text):
-        header = decode_header(text)[0]
-        return str(Header(header[0], header[1] if not None else 'utf-8'))
+        if text:
+            header = decode_header(text)[0]
+            return str(Header(header[0], header[1] if not None else 'utf-8')).replace("'", "")
+        return '    .'
 
 
 if __name__ == '__main__':

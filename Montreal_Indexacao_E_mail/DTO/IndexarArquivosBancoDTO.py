@@ -13,9 +13,9 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
         dados = {
             'id_mensagem': self.arquivo_email.id_mensagem,
             'nome_do_arquivo': self.arquivo_email.get_dir_arquivo(),
-            'message_id': self.arquivo_email.get_email_message_id(),
+            'message_id': self.arquivo_email.get_email_message_id()[0:149],
             'id_from': self.arquivo_email.emails_to[0]['id'],
-            'header_subject': self.arquivo_email.get_email_subject(),
+            'header_subject': self.arquivo_email.get_email_subject().replace('\x00', '')[0:250],
             'header_date': str(convert_data(self.arquivo_email.get_email_date(), full=True)),
             'body_text': self.arquivo_email.get_email_text()[0:127],
             'body_html': self.arquivo_email.get_email_html()[0:127]
