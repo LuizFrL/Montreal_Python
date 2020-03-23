@@ -3,4 +3,4 @@ venv/*
 Montreal_NotasFiscais/config.json
 XML_Montreal/config.json
 .idea/*
-Montreal_Robo_Zabbix/geckodriver.log
+Montreal_Robo_Zabbix/Zabbix/geckodriver.log

@@ -1,7 +1,7 @@
 from Montreal_Indexacao_E_mail.DAO.MailAudit.MailAuditDAO import MailAuditDAO
 from Montreal_Indexacao_E_mail.Service.LerArquivoEmail import LerArquivoEmail
 from Montreal_Download_Anexos_E_mail.Download_Attachments import convert_data
-
+import datetime
 
 class IndexarAqruivosBancoDTO(MailAuditDAO):
 
@@ -10,13 +10,24 @@ class IndexarAqruivosBancoDTO(MailAuditDAO):
         self.arquivo_email = arquivo_email
 
     def inserir_dados_mensagens(self):
+        try:
+            data = str(convert_data(self.arquivo_email.get_email_date(), full=True))
+        except TypeError:
+            try:
+                data = str(datetime.datetime.strptime(self.arquivo_email.get_email_date(), '%A   , %d %B  %Y %H:%M %z'))
+            except:
+                import locale
+                locale.setlocale(locale.LC_ALL, 'de_DE')
+                data = str(datetime.datetime.strptime(self.arquivo_email.get_email_date().capitalize(),
+                                                      '%d-%b-%Y %H:%M:%S'))
         dados = {
             'id_mensagem': self.arquivo_email.id_mensagem,
             'nome_do_arquivo': self.arquivo_email.get_dir_arquivo(),
             'message_id': self.arquivo_email.get_email_message_id()[0:149],
             'id_from': self.arquivo_email.emails_to[0]['id'],
-            'header_subject': self.arquivo_email.get_email_subject().replace('\x00', '')[0:250],
-            'header_date': str(convert_data(self.arquivo_email.get_email_date(), full=True)),
+            'header_subject': self.arquivo_email.get_email_subject()
+                                  .replace('\x00', '').replace('\n \n', ' ').replace('\xa0', '')[0:250],
+            'header_date': data,
             'body_text': self.arquivo_email.get_email_text()[0:127],
             'body_html': self.arquivo_email.get_email_html()[0:127]
     }
