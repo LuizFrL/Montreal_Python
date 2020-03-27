@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 
-ano_mes_dia_de = '2020-01-01'
-ano_mes_dia_ate = '2020-01-31'
+ano_mes_dia_de = '2020-02-01'
+ano_mes_dia_ate = '2020-02-29'
 url = f'http://172.31.68.39/zabbix/index.php?request=report2.php%3Fmode%3D0%26from%3D{ano_mes_dia_de}%2B00%253A00%253A00%26to%3D{ano_mes_dia_ate}%2B23%253A59%253A59%26filter_groupid%3D4%26filter_hostid%3D10084%26filter_set%3D1'
 
 driver = webdriver.Chrome()
@@ -29,6 +29,7 @@ df_full = pd.concat([pd.read_html(str(table1))[0], pd.read_html(str(table2))[0]]
 df_full['Ok'] = df_full['Ok'].str.replace('%', '')
 df_full['Problems'] = df_full['Problems'].str.replace('%', '')
 df_full.drop('Graph', inplace=True, axis=1)
+df_full.drop('Host', inplace=True, axis=1)
 
 nomes_servicos = [
     'Atendimento 1.0 - indisponível', 'Atendimento 2.0 - Indisponível', 'Cadastro de Cliente - Indisponível',
