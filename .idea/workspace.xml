@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2805b559-cebf-44bb-9b82-feac4f3df9e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Montreal_NotasFiscais/verificando_envio.py" beforeDir="false" afterPath="$PROJECT_DIR$/Montreal_NotasFiscais/verificando_envio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Montreal_Robo_Zabbix/Zabbix/Relatorio.py" beforeDir="false" afterPath="$PROJECT_DIR$/Montreal_Robo_Zabbix/Zabbix/Relatorio.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,8 +115,8 @@
       <recent name="C:\Users\m1015\.PyCharm2019.3\config\scratches" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Relatorio">
-    <configuration name="Download_Attachments" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Main (1)">
+    <configuration name="Main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Montreal_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,12 +124,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Montreal_Download_Anexos_E_mail" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Montreal_Robo_Zabbix" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Download_Anexos_E_mail/Download_Attachments.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Robo_Zabbix/Main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,7 +138,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Indexacao Main Teste" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Montreal_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -145,34 +146,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/Indexacao Main Teste.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="IndexarArquivosBancoDTO" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Montreal_Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO/IndexarArquivosBancoDTO.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -203,7 +182,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Teste" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Scopi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Montreal_Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Montreal_Robo_Zabbix/Scopi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Montreal_Robo_Zabbix/Scopi/Scopi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Teste3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Montreal_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -216,7 +217,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/Teste.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/Teste3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -227,11 +228,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Main (1)" />
         <item itemvalue="Python.Relatorio" />
-        <item itemvalue="Python.Download_Attachments" />
-        <item itemvalue="Python.Teste" />
-        <item itemvalue="Python.Indexacao Main Teste" />
-        <item itemvalue="Python.IndexarArquivosBancoDTO" />
+        <item itemvalue="Python.Scopi" />
+        <item itemvalue="Python.Teste3" />
+        <item itemvalue="Python.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -316,7 +317,7 @@
       <workItem from="1583768772604" duration="91974000" />
       <workItem from="1584375773527" duration="20214000" />
       <workItem from="1584471108375" duration="111761000" />
-      <workItem from="1585161492322" duration="4340000" />
+      <workItem from="1585161492322" duration="20044000" />
     </task>
     <task id="LOCAL-00001" summary="Conectando Python com o MomgoDB e fazendo insert de dados.">
       <created>1582058487098</created>
@@ -368,14 +369,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580500093602" />
-    <state x="217" y="284" width="1462" height="484" key="#xdebugger.XInspectDialog" timestamp="1584051631912">
+    <state x="217" y="284" width="1462" height="484" key="#xdebugger.XInspectDialog" timestamp="1585604000379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="217" y="284" width="1462" height="484" key="#xdebugger.XInspectDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584051631912" />
-    <state x="436" y="421" width="1037" height="596" key="#xdebugger.evaluate" timestamp="1585153996154">
+    <state x="217" y="284" width="1462" height="484" key="#xdebugger.XInspectDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585604000379" />
+    <state x="436" y="421" width="1037" height="596" key="#xdebugger.evaluate" timestamp="1585604050332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="436" y="421" width="1037" height="596" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1585153996154" />
+    <state x="436" y="421" width="1037" height="596" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1585604050332" />
     <state x="585" y="113" key="CommitChangelistDialog2" timestamp="1582061247913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -396,38 +397,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583253293748" />
-    <state width="1877" height="320" key="GridCell.Tab.0.bottom" timestamp="1585153997173">
+    <state width="1877" height="318" key="GridCell.Tab.0.bottom" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585153997173" />
-    <state width="1877" height="320" key="GridCell.Tab.0.center" timestamp="1585153997173">
+    <state width="1877" height="318" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
+    <state width="1877" height="318" key="GridCell.Tab.0.center" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585153997173" />
-    <state width="1877" height="320" key="GridCell.Tab.0.left" timestamp="1585153997173">
+    <state width="1877" height="318" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
+    <state width="1877" height="318" key="GridCell.Tab.0.left" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585153997173" />
-    <state width="1877" height="320" key="GridCell.Tab.0.right" timestamp="1585153997173">
+    <state width="1877" height="318" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
+    <state width="1877" height="318" key="GridCell.Tab.0.right" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585153997173" />
-    <state width="1877" height="320" key="GridCell.Tab.1.bottom" timestamp="1585153986487">
+    <state width="1877" height="318" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
+    <state width="1877" height="318" key="GridCell.Tab.1.bottom" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585153986487" />
-    <state width="1877" height="320" key="GridCell.Tab.1.center" timestamp="1585153986487">
+    <state width="1877" height="318" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
+    <state width="1877" height="318" key="GridCell.Tab.1.center" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585153986487" />
-    <state width="1877" height="320" key="GridCell.Tab.1.left" timestamp="1585153986487">
+    <state width="1877" height="318" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
+    <state width="1877" height="318" key="GridCell.Tab.1.left" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585153986487" />
-    <state width="1877" height="320" key="GridCell.Tab.1.right" timestamp="1585153986487">
+    <state width="1877" height="318" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
+    <state width="1877" height="318" key="GridCell.Tab.1.right" timestamp="1585608295230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585153986487" />
+    <state width="1877" height="318" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585608295230" />
     <state width="199" height="457" key="HiddenNamespacesPopup" timestamp="1584123121750">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -464,6 +465,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="818" y="232" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580742869726" />
+    <state x="487" y="224" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1585598269486">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="487" y="224" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1585598269486" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.RecentChangeDialog" timestamp="1583253916894">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -472,18 +477,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="655" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585164384002" />
-    <state x="643" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580842479900">
+    <state x="643" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585605936159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="643" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580842479900" />
+    <state x="643" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585605936159" />
     <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581704700117">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1581704700117" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583960308431">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585599698807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583960308431" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585599698807" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Montreal_Robo_Zabbix/Zabbix/Relatorio.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Montreal_Python$ArquivosBanco.coverage" NAME="ArquivosBanco Coverage Results" MODIFIED="1581110047360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/XML_Montreal/Banco" />
@@ -495,14 +511,15 @@
     <SUITE FILE_PATH="coverage/Montreal_Python$conciliacao.coverage" NAME="conciliacao Coverage Results" MODIFIED="1580929111949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_NotasFiscais" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Teste.coverage" NAME="Teste Coverage Results" MODIFIED="1585000421815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Montreal_Python$tratamentoJarvis.coverage" NAME="tratamentoJarvis Coverage Results" MODIFIED="1580843282752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_NotasFiscais" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$Scopi.coverage" NAME="Scopi Coverage Results" MODIFIED="1585599551564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Robo_Zabbix/Scopi" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Teste2.coverage" NAME="Teste2 Coverage Results" MODIFIED="1584397713767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Robo.coverage" NAME="Robo Coverage Results" MODIFIED="1584983068628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Robo_Zabbix" />
     <SUITE FILE_PATH="coverage/Montreal_Python$LerArquivoEmail.coverage" NAME="LerArquivoEmail Coverage Results" MODIFIED="1584481661202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Service" />
     <SUITE FILE_PATH="coverage/Montreal_Python$IndexarArquivosBancoDTO.coverage" NAME="IndexarArquivosBancoDTO Coverage Results" MODIFIED="1584986299873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DTO" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Chamados.coverage" NAME="Chamados Coverage Results" MODIFIED="1580919622937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Montreal_Python$replace_functions.coverage" NAME="replace_functions Coverage Results" MODIFIED="1583258391433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches/keyboard_listener" />
-    <SUITE FILE_PATH="coverage/Montreal_Python$Relatorio.coverage" NAME="Relatorio Coverage Results" MODIFIED="1585153969174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Robo_Zabbix/Zabbix" />
-    <SUITE FILE_PATH="coverage/Montreal_Python$Teste3.coverage" NAME="Teste3 Coverage Results" MODIFIED="1584722754786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$Relatorio.coverage" NAME="Relatorio Coverage Results" MODIFIED="1585608050515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Robo_Zabbix/Zabbix" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$Teste3.coverage" NAME="Teste3 Coverage Results" MODIFIED="1585598947516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Montreal_Python$MailAuditDAO.coverage" NAME="MailAuditDAO Coverage Results" MODIFIED="1584393931939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/DAO/MailAudit" />
     <SUITE FILE_PATH="coverage/Montreal_Python$LerArquivoEmail__1_.coverage" NAME="LerArquivoEmail (1) Coverage Results" MODIFIED="1583866608953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail/Service" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Hoteis.coverage" NAME="Hoteis Coverage Results" MODIFIED="1577468682548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_HoteisFirebase/Banco_Hoteis" />
@@ -511,10 +528,10 @@
     <SUITE FILE_PATH="coverage/Montreal_Python$Tamanho_Diretorio.coverage" NAME="Tamanho_Diretorio Coverage Results" MODIFIED="1583264688965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Montreal_Python$E_Mail.coverage" NAME="E_Mail Coverage Results" MODIFIED="1582059752618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Download_Anexos_E_mail/E_mail" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Conect.coverage" NAME="Conect Coverage Results" MODIFIED="1584397392573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Banco" />
-    <SUITE FILE_PATH="coverage/Montreal_Python$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1580420043049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/XML_Montreal" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Indexacao_Main_Teste.coverage" NAME="Indexacao Main Teste Coverage Results" MODIFIED="1584991680060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1585608271464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Robo_Zabbix" />
     <SUITE FILE_PATH="coverage/Montreal_Python$dados.coverage" NAME="dados Coverage Results" MODIFIED="1577130266484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches/fraldas" />
-    <SUITE FILE_PATH="coverage/Montreal_Python$Main.coverage" NAME="Main Coverage Results" MODIFIED="1584719828672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/XML_Montreal" />
+    <SUITE FILE_PATH="coverage/Montreal_Python$Main.coverage" NAME="Main Coverage Results" MODIFIED="1585323322930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Indexacao_E_mail" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Download_Attachments.coverage" NAME="Download_Attachments Coverage Results" MODIFIED="1585153954934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Montreal_Download_Anexos_E_mail" />
     <SUITE FILE_PATH="coverage/Montreal_Python$gerar_executável.coverage" NAME="gerar_executável Coverage Results" MODIFIED="1584483836492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches/Reformulando XML/Gerar Executavel" />
     <SUITE FILE_PATH="coverage/Montreal_Python$Correcao_NFE.coverage" NAME="Correcao_NFE Coverage Results" MODIFIED="1579289883900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
