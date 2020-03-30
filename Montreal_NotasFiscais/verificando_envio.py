@@ -216,96 +216,98 @@ def retornar_string_arquivo(dir_):
     return conteudo
 
 
-print('v 1.0.1 - Iniciando...')
+if __name__ == '__main__':
 
-try:
-    os.chdir(r'C:\Users\m1015\Desktop\Notas')
-except:
-    pass
+    print('v 1.0.1 - Iniciando...')
 
-config = retornar_config()
+    try:
+        os.chdir(r'C:\Users\m1015\Desktop\Notas')
+    except:
+        pass
 
-diretorio_originais = config["diretorios"]['diretorio_arquivos_originais']
+    config = retornar_config()
 
-diretorio_resposta = config["diretorios"]['diretorio_arquivos_resposta']
+    diretorio_originais = config["diretorios"]['diretorio_arquivos_originais']
 
-diretorio_pendentes = config["diretorios"]['diretorio_arquivos_geradas']
+    diretorio_resposta = config["diretorios"]['diretorio_arquivos_resposta']
 
-inicio = datetime.now()
+    diretorio_pendentes = config["diretorios"]['diretorio_arquivos_geradas']
 
-analise_ = ''
+    inicio = datetime.now()
 
-arquivos_pendentes = len(os.listdir(diretorio_pendentes))
+    analise_ = ''
 
-if date.today() == ultimo_dia_mes(): # Verificando se é o ultimo dia do mês
-    analise_ = 'mensal'
+    arquivos_pendentes = len(os.listdir(diretorio_pendentes))
 
-arquivos_data = retornar_arquivos()
-print("Iniciando verificação de erro...")
+    if date.today() == ultimo_dia_mes(): # Verificando se é o ultimo dia do mês
+        analise_ = 'mensal'
 
-for data in arquivos_data.keys():
-    quantidade_arquivos = quantidade_arquivos_resposta = arq_erro = em_contingencia = valor_total_erro = 0
-    valor_total_contingencia = valor_total_enviadas = valor_total_retornadas = valor_total_sem_retorno = 0
-    total_arquivos_sem_retorno = 0
+    arquivos_data = retornar_arquivos()
+    print("Iniciando verificação de erro...")
 
-    arquivos_com_erro = [ ]
-    arquivos_em_contingencia = [ ]
+    for data in arquivos_data.keys():
+        quantidade_arquivos = quantidade_arquivos_resposta = arq_erro = em_contingencia = valor_total_erro = 0
+        valor_total_contingencia = valor_total_enviadas = valor_total_retornadas = valor_total_sem_retorno = 0
+        total_arquivos_sem_retorno = 0
 
-    for arq in arquivos_data[data]['arquivos']:
-        quantidade_arquivos += 1
+        arquivos_com_erro = [ ]
+        arquivos_em_contingencia = [ ]
 
-        arquivo_resposta = ''
-        keys = arq.keys()
+        for arq in arquivos_data[data]['arquivos']:
+            quantidade_arquivos += 1
 
-        for key in arq.keys():
-            diretorio_arquivo_original = f'{diretorio_originais}\\{key}'
-            valor_total_enviadas += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
-            arquivo_resposta = str(key).replace('lotenfce-', 'respLotenfce-')
+            arquivo_resposta = ''
+            keys = arq.keys()
 
-            diretorio = f'{diretorio_resposta}\\{arquivo_resposta}'
-            if os.path.exists(diretorio):
-                quantidade_arquivos_resposta += 1
-                valor_total_retornadas += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
-                arq_string = retornar_string_arquivo(diretorio)
+            for key in arq.keys():
+                diretorio_arquivo_original = f'{diretorio_originais}\\{key}'
+                valor_total_enviadas += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
+                arquivo_resposta = str(key).replace('lotenfce-', 'respLotenfce-')
 
-                if arq_string.find('<xMotivo>Autorizado o uso da NF-e</xMotivo>') == -1 \
-                        and arq_string.find('<xMotivo>Documento impresso em contingência.</xMotivo>') == -1\
-                        and arq_string.find('inutilizada') == -1:
-                    arq_erro += 1
-                    valor_total_erro += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
-                    arquivos_com_erro.append(arquivo_resposta)
+                diretorio = f'{diretorio_resposta}\\{arquivo_resposta}'
+                if os.path.exists(diretorio):
+                    quantidade_arquivos_resposta += 1
+                    valor_total_retornadas += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
+                    arq_string = retornar_string_arquivo(diretorio)
 
-                if arq_string.find('<xMotivo>Documento impresso em contingência.</xMotivo>') != -1:
-                    em_contingencia += 1
-                    arquivos_em_contingencia.append(arquivo_resposta)
+                    if arq_string.find('<xMotivo>Autorizado o uso da NF-e</xMotivo>') == -1 \
+                            and arq_string.find('<xMotivo>Documento impresso em contingência.</xMotivo>') == -1\
+                            and arq_string.find('inutilizada') == -1:
+                        arq_erro += 1
+                        valor_total_erro += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
+                        arquivos_com_erro.append(arquivo_resposta)
 
-                    if arquivo_resposta in arquivos_com_erro:
-                        arquivos_com_erro.remove(arquivo_resposta)
+                    if arq_string.find('<xMotivo>Documento impresso em contingência.</xMotivo>') != -1:
+                        em_contingencia += 1
+                        arquivos_em_contingencia.append(arquivo_resposta)
 
-                    valor_total_contingencia += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
-            else:
+                        if arquivo_resposta in arquivos_com_erro:
+                            arquivos_com_erro.remove(arquivo_resposta)
 
-                arquivos_data[data]['sem_retorno'].append(arquivo_resposta)
-                total_arquivos_sem_retorno += 1
-                valor_total_sem_retorno += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
+                        valor_total_contingencia += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
+                else:
 
-    arquivos_data[data]['erro'] = arq_erro
-    arquivos_data[data]['contingencia'] = em_contingencia
-    arquivos_data[data]['total_arquivos'] = quantidade_arquivos
-    arquivos_data[data]['total_arquivos_resposta'] = quantidade_arquivos_resposta
-    arquivos_data[data]['total_arquivos_sem_retorno'] = total_arquivos_sem_retorno
+                    arquivos_data[data]['sem_retorno'].append(arquivo_resposta)
+                    total_arquivos_sem_retorno += 1
+                    valor_total_sem_retorno += retornar_valor_tag(diretorio_arquivo_original, '<vPag>')
 
-    arquivos_data[data]['arquivos_com_erro'] = arquivos_com_erro
-    arquivos_data[data]['arquivos_em_contingencia'] = arquivos_em_contingencia
+        arquivos_data[data]['erro'] = arq_erro
+        arquivos_data[data]['contingencia'] = em_contingencia
+        arquivos_data[data]['total_arquivos'] = quantidade_arquivos
+        arquivos_data[data]['total_arquivos_resposta'] = quantidade_arquivos_resposta
+        arquivos_data[data]['total_arquivos_sem_retorno'] = total_arquivos_sem_retorno
 
-    arquivos_data[data]['valor_total_erro'] = valor_total_erro
-    arquivos_data[data]['valor_total_contingencia'] = valor_total_contingencia
-    arquivos_data[data]['valor_total_enviadas'] = valor_total_enviadas
-    arquivos_data[data]['valor_total_retornadas'] = valor_total_retornadas
-    arquivos_data[data]['valor_total_sem_retorno'] = valor_total_sem_retorno
+        arquivos_data[data]['arquivos_com_erro'] = arquivos_com_erro
+        arquivos_data[data]['arquivos_em_contingencia'] = arquivos_em_contingencia
 
-print("Terminando verificação.")
+        arquivos_data[data]['valor_total_erro'] = valor_total_erro
+        arquivos_data[data]['valor_total_contingencia'] = valor_total_contingencia
+        arquivos_data[data]['valor_total_enviadas'] = valor_total_enviadas
+        arquivos_data[data]['valor_total_retornadas'] = valor_total_retornadas
+        arquivos_data[data]['valor_total_sem_retorno'] = valor_total_sem_retorno
 
-enviar_email(arquivos_data, arquivos_pendentes)
+    print("Terminando verificação.")
 
-sleep(5)
+    enviar_email(arquivos_data, arquivos_pendentes)
+
+    sleep(5)

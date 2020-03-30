@@ -5,6 +5,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from time import sleep
 import json, glob
+
+from Montreal_NotasFiscais.verificando_envio import ultimo_dia_mes
 from XML_Montreal.Uteis import retornar_valor_tag
 
 
@@ -35,16 +37,6 @@ def verifica_contingencia_erro(lista_strings):
 def retornar_config():
     with open('config.json', 'r', encoding='utf-8') as file:
         return json.load(file)
-
-
-def ultimo_dia_mes():
-    hoje = date.today()
-
-    if hoje.month == 12:
-        ultimo_dia = date(day=31, month=12, year=hoje.year)
-    else:
-        ultimo_dia = date(day=1, year=hoje.year, month=hoje.month + 1) - timedelta(days=1)
-    return ultimo_dia
 
 
 def enviar_email(informacoes_arquivo, pendencia):
